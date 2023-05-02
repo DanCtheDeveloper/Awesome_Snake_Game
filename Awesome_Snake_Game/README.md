@@ -40,7 +40,8 @@ Game type: Sake Game
 3 - Decide on JavaScript Functions necessary for game and implement.
 4 - Test code, ensure game is working.
 5 - Beautify, adding background images or colors, etc.
-6 -  If all is working, add new functions to the game.
+6 - If all is working, add new functions to the game.
+7 - Provide form for subscribers 
 
 
 

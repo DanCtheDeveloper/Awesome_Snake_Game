@@ -1,0 +1,57 @@
+/* Set Background */
+body {
+    background-image: url("./assets/pexels-jan-kopřiva-5899211.jpg");
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Set color (text) */
+body {
+    color: whitesmoke
+}
+
+h1 {
+    color: rgb(108, 173, 43);
+    text-align: center;
+}
+/* Set Fonts */
+
+/* Set Styling for Divs */
+
+.Instructions {
+    height: 10em;
+    margin: 5px;
+    width:25em;
+    border-radius: 25px;
+    border: 2px solid whitesmoke;
+    position: absolute;
+    top: 10%;
+    left: 75%;
+    margin-top: 10px;
+    margin-left: -50px;
+
+}
+
+
+.Side_Menu {
+    height: 15em;
+    margin: 5px;
+    width: 3em;
+    text-align: center;
+    border-radius: 25px;
+    border: 2px solid whitesmoke;
+}
+
+.Game_Board {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 500px;
+    height: 500px;
+    display:grid;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(20, 1fr); 
+}
