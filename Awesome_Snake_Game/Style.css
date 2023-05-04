@@ -1,9 +1,12 @@
-/* Set Background */
+/* Set Background & Set Fonts */
+
+
+
 body {
     background-image: url("./assets/pexels-jan-kopřiva-5899211.jpg");
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-repeat: no-repeat;
-    background-size: cover;
+  background-size: cover;
 }
 
 /* Set color (text) */
@@ -15,19 +18,19 @@ h1 {
     color: rgb(108, 173, 43);
     text-align: center;
 }
-/* Set Fonts */
+
 
 /* Set Styling for Divs */
 
 .Instructions {
     height: 10em;
     margin: 5px;
-    width:25em;
+    width:23em;
     border-radius: 25px;
     border: 2px solid whitesmoke;
     position: absolute;
     top: 10%;
-    left: 75%;
+    left: 73%;
     margin-top: 10px;
     margin-left: -50px;
 
@@ -43,15 +46,43 @@ h1 {
     border: 2px solid whitesmoke;
 }
 
-.Game_Board {
+
+
+#game_board {
+    /* background-color: rgb(221, 190, 103);  */
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 20%;
+    left: 20%;
     margin-top: -50px;
-    margin-left: -50px;
-    width: 500px;
+    margin-left: -20px;
+    margin-right: 20px;
+     /* width: 500px;
     height: 500px;
     display:grid;
     grid-template-rows: repeat(20, 1fr);
-    grid-template-columns: repeat(20, 1fr); 
+    grid-template-columns: repeat(20, 1fr);  */
+    border: 2px solid rgb(7, 204, 7);
 }
+
+/* 
+#Square  {
+    height: 25px;
+    width: 25px;
+    background-color: rgb(108, 173, 43);
+    grid-row-start: 15;
+    grid-column-start: 15;
+    object-fit: cover;
+    opacity: 1;
+    z-index: 2;
+}
+
+#Food  {
+    height: 25px;
+    width: 25px;
+    background-color: rgb(241, 134, 10);
+    grid-row-start: 7;
+    grid-column-start: 7;
+    object-fit: cover;
+    opacity: 1;
+    z-index: 2;
+} */
