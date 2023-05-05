@@ -10,6 +10,9 @@ var context;
 var snakeX = blockSize * 10
 var snakeY = blockSize * 10
 
+var speedX = 0;
+var speedY = 0;
+
 //Food Square
 var foodX 
 var foodY
@@ -22,7 +25,7 @@ window.onload = function() {
 
     placeFood()
     document.addEventListener("keyup", changeDirection)
-    update() 
+    setInterval(update, 1000/10)
 }
 
 function update() {
@@ -30,6 +33,8 @@ function update() {
     context.fillRect(0, 0, play.width, play.height)  
     
     context.fillStyle="rgb(108, 173, 43)"
+    snakeX += speedX * blockSize
+    snakeY += speedY * blockSize
     context.fillRect(snakeX, snakeY, blockSize, blockSize)
 
     context.fillStyle="rgb(241, 134, 10)"
@@ -39,7 +44,20 @@ function update() {
 
 function changeDirection(e){
     if (e.code == "ArrowUp") {
-
+        speedX = 0
+        speedY = -1
+    }
+    else if (e.code == "ArrowDown") {
+        speedX = 0
+        speedY = 1
+    }
+    else if (e.code == "ArrowLeft") {
+        speedX = -1
+        speedY = 0
+    }
+    else if (e.code == "ArrowRight") {
+        speedX = 1
+        speedY = 0
     }
 }
 
