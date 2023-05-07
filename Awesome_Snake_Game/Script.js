@@ -1,21 +1,29 @@
 
 // draw the board using JavaScript
-var blockSize = 25
-var rows =20
-var cols = 20
-var play;
-var context;
+let blockSize = 25
+let rows =20
+let cols = 20
+let play;
+let context;
 
 //Head of the Snake 
-var snakeX = blockSize * 10
-var snakeY = blockSize * 10
+let snakeX = blockSize * 10
+let snakeY = blockSize * 10
 
-var speedX = 0;
-var speedY = 0;
+let speedX = 0;
+let speedY = 0;
+
+//Code to Grow the snake body:
+let snakeGrow = []
 
 //Food Square
-var foodX 
-var foodY
+
+
+let foodX 
+let foodY
+
+//"Game Over"
+let gameOver = false
 
 window.onload = function() {
     play = document.getElementById("game_board")
@@ -23,51 +31,113 @@ window.onload = function() {
     play.width = cols * blockSize
     context = play.getContext("2d")
 
+    //code for placing the food:
     placeFood()
     document.addEventListener("keyup", changeDirection)
     setInterval(update, 1000/10)
 }
 
+    //code for drawing and re-drawing game_board, snake, and food characteristics:
 function update() {
+    //Telling the game to stop when Game Over:
+    if(gameOver) {
+        return
+    }
+
     context.fillStyle="rgb(221, 190, 103)"
     context.fillRect(0, 0, play.width, play.height)  
+
+    context.fillStyle="rgb(241, 134, 10)"
+    context.fillRect(foodX, foodY, blockSize, blockSize)
     
     context.fillStyle="rgb(108, 173, 43)"
     snakeX += speedX * blockSize
     snakeY += speedY * blockSize
     context.fillRect(snakeX, snakeY, blockSize, blockSize)
 
-    context.fillStyle="rgb(241, 134, 10)"
-    context.fillRect(foodX, foodY, blockSize, blockSize)
+    //code for making the snake eat the food:
+    if (snakeX === foodX && snakeY === foodY){
+    //code for growing the snake
+    snakeGrow.push([snakeX, snakeY])
+    placeFood()
+        }
+
+    //For-Let statement to change the food green when eaten:
+    for (let i=0; i<snakeGrow.length; i++) {
+        context.fillRect(snakeGrow[i][0], snakeGrow[i][1], blockSize, blockSize)
+    }
+
+
+    //For-let statement to move the body with the head:
+    for (let i = snakeGrow.length-1; i > 0; i--){
+        snakeGrow[i] = snakeGrow[i-1]
+    }
+    if (snakeGrow.length) {
+        snakeGrow[0] = [snakeX, snakeY]
+    }
+
+    
+    // Bumping the wall - "Game Over":
+    if(snakeX < 0 || snakeX > cols*blockSize -1 || snakeY < 0 || snakeY > rows*blockSize -1){
+        gameOver = true
+        alert("Game Over, you ran into the wall")
+    }
+
+    //Snake Eating it's self for "Game Over"
+
+    // for (let i = 0; i < snakeGrow.length; i++) {
+    //     if (snakeX == snakeGrow[i][0] && snakeY == snakeGrow[i][1]) {   
+    //     //   gameOver
+    //       console.log("Game Over Ate It's Self")
+    //     }
+    //   }
+
+    
+        //if the snake runs into itself
+        // function didSnakeCollide(snake) {
+        for (let i = 0; i < snakeGrow.length; i++) {
+            if (snakeGrow[i].x === snakeGrow[0].x && snakeGrow[i].y === snakeGrow[0].y) {
+           gameOver = true
+           alert("Game Over, You bit your tail")
+            // }
+        }
+    }
 }
 
 
+
+
+    //code for directions/movement:
 function changeDirection(e){
-    if (e.code == "ArrowUp") {
+    if (e.code === "ArrowUp") {
         speedX = 0
         speedY = -1
     }
-    else if (e.code == "ArrowDown") {
+    else if (e.code === "ArrowDown") {
         speedX = 0
         speedY = 1
     }
-    else if (e.code == "ArrowLeft") {
+    else if (e.code === "ArrowLeft") {
         speedX = -1
         speedY = 0
     }
-    else if (e.code == "ArrowRight") {
+    else if (e.code === "ArrowRight") {
         speedX = 1
         speedY = 0
     }
 }
 
 
-//put food in a random place
+//put food in a random place:
 
 function placeFood() {
     foodX = Math.floor(Math.random() * cols) *blockSize
     foodY = Math.floor(Math.random() * rows) *blockSize
 }
+
+
+
+
 
 
 
