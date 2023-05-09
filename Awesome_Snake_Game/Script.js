@@ -9,7 +9,6 @@ let context;
 //Head of the Snake 
 let snakeX = blockSize * 10
 let snakeY = blockSize * 10
-
 let speedX = 0;
 let speedY = 0;
 
@@ -18,9 +17,12 @@ let snakeGrow = []
 
 //Food Square
 
-
 let foodX 
 let foodY
+
+let score = 0
+
+let timeElapsed = 0
 
 //"Game Over"
 let gameOver = false
@@ -31,6 +33,7 @@ window.onload = function() {
     play.width = cols * blockSize
     context = play.getContext("2d")
 
+
     //code for placing the food:
     placeFood()
     document.addEventListener("keyup", changeDirection)
@@ -39,6 +42,10 @@ window.onload = function() {
 
     //code for drawing and re-drawing game_board, snake, and food characteristics:
 function update() {
+
+    //setting up the timer:
+    timeElapsed += 1
+
     //Telling the game to stop when Game Over:
     if(gameOver) {
         return
@@ -49,25 +56,18 @@ function update() {
 
     context.fillStyle="rgb(241, 134, 10)"
     context.fillRect(foodX, foodY, blockSize, blockSize)
-    
-    context.fillStyle="rgb(108, 173, 43)"
-    snakeX += speedX * blockSize
-    snakeY += speedY * blockSize
-    context.fillRect(snakeX, snakeY, blockSize, blockSize)
 
-    //code for making the snake eat the food:
-    if (snakeX === foodX && snakeY === foodY){
+
+ //code for making the snake eat the food:
+ if (snakeX === foodX && snakeY === foodY){
     //code for growing the snake
-    snakeGrow.push([snakeX, snakeY])
+    snakeGrow.push([foodX, foodY])
     placeFood()
-        }
-
-    //For-Let statement to change the food green when eaten:
-    for (let i=0; i<snakeGrow.length; i++) {
-        context.fillRect(snakeGrow[i][0], snakeGrow[i][1], blockSize, blockSize)
+    score +=10
     }
 
-
+    context.fillText("Score:" + score, 20, 20)
+    
     //For-let statement to move the body with the head:
     for (let i = snakeGrow.length-1; i > 0; i--){
         snakeGrow[i] = snakeGrow[i-1]
@@ -77,33 +77,57 @@ function update() {
     }
 
     
+    context.fillStyle="rgb(108, 173, 43)"
+    snakeX += speedX * blockSize
+    snakeY += speedY * blockSize
+    context.fillRect(snakeX, snakeY, blockSize, blockSize)
+     //For-Let statement to change the food green when eaten:
+     for (let i=0; i<snakeGrow.length; i++) {
+        context.fillRect(snakeGrow[i][0], snakeGrow[i][1], blockSize, blockSize)
+    }
+
+   
+
+    
     // Bumping the wall - "Game Over":
     if(snakeX < 0 || snakeX > cols*blockSize -1 || snakeY < 0 || snakeY > rows*blockSize -1){
         gameOver = true
-        alert("Game Over, you ran into the wall")
+        let wall = confirm("Game Over, you ran into the wall")
+            if (wall = true){
+                window.location.reload()
+
+               
+            }
     }
-
-    //Snake Eating it's self for "Game Over"
-
-    // for (let i = 0; i < snakeGrow.length; i++) {
-    //     if (snakeX == snakeGrow[i][0] && snakeY == snakeGrow[i][1]) {   
-    //     //   gameOver
-    //       console.log("Game Over Ate It's Self")
-    //     }
-    //   }
-
-    
-        //if the snake runs into itself
-        // function didSnakeCollide(snake) {
-        for (let i = 0; i < snakeGrow.length; i++) {
-            if (snakeGrow[i].x === snakeGrow[0].x && snakeGrow[i].y === snakeGrow[0].y) {
-           gameOver = true
-           alert("Game Over, You bit your tail")
-            // }
-        }
-    }
+    displayTimer()
+    didSnakeCollide()
 }
 
+        //if the snake runs into itself
+        function didSnakeCollide() {
+            for (let i = 1; i < snakeGrow.length; i++) 
+            if (snakeGrow[i][0] === snakeGrow[0][0] && snakeGrow[i][1] === snakeGrow[0][1]) {
+                gameOver = true
+                    console.log("Snake Bit Himself", snakeGrow)
+                    let dead = confirm("Game Over, you bit your tail!")
+                    if (dead = true){
+                    window.location.reload()
+                    }
+                }
+            }
+        
+            function formatTime(time) {
+                const minutes = Math.floor(time / 60);
+                const seconds = time % 60;
+                return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+              }
+              
+              function displayTimer() {
+                const timerElement = document.getElementById('timer');
+                const formattedTime = formatTime(timeElapsed);
+                timerElement.innerText = `Time: ${formattedTime}`;
+              }
+              
 
 
 

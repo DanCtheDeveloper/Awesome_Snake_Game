@@ -19,13 +19,19 @@ h1 {
     text-align: center;
 }
 
+button {
+    background-color: rgba(0, 0, 0, 0.007);
+    color: whitesmoke;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px;
+}
 
 /* Set Styling for Divs */
 
 .Instructions {
     height: 10em;
     margin: 5px;
-    width:23em;
+    width:25em;
     border-radius: 25px;
     border: 2px solid whitesmoke;
     position: absolute;
@@ -33,14 +39,14 @@ h1 {
     left: 73%;
     margin-top: 10px;
     margin-left: -50px;
-
 }
 
 
 .Side_Menu {
-    height: 15em;
+    padding: 3px;
+    height: 9em;
     margin: 5px;
-    width: 3em;
+    width:7em;
     text-align: center;
     border-radius: 25px;
     border: 2px solid whitesmoke;
@@ -62,7 +68,27 @@ h1 {
     grid-template-rows: repeat(20, 1fr);
     grid-template-columns: repeat(20, 1fr);  */
     border: 2px solid rgb(7, 204, 7);
+    box-shadow: 5x, 5px, 5px, 5px whitesmoke;
 }
+
+#timer {
+    text-align: center;
+    height: 2em;
+    margin: 5px;
+    padding: 15px;
+    width:6em;
+    border-radius: 25px;
+    border: 2px solid whitesmoke;
+    position: absolute;
+    top: 32%;
+    left: 3.25%;
+    margin-top: 10px;
+    margin-left: -50px;
+}
+
+
+
+
 
 /* Old Method of creating Snake and Food:
 

@@ -20,13 +20,9 @@
 
 <!--Side-Div with Start Game, Reset Game Score, and Lives Used -->
     
-<div class="Side_Menu">
-    <br>
-        <div >Start Game</div>
-        <br>
-        <div>Reset Game</div>
-        <br>
-        <div>Lives Used</div>
+<div class="Side_Menu"> 
+    <h2>Start Over?</h2>
+    <button onClick="window.location.reload();">Reset Game</button>
     </div>
 
     <!-- Game Board -->
@@ -49,6 +45,10 @@
         <li>Try to grow the snake as large as you can in 60 seconds.</li>
         <li>If you run into the walls the game is over.</li>
         <li>If the snake runs into himself, the game is over.</li>
+    </div>
+
+    <div id="timer">
+        Time: 00:00
     </div>
 
 

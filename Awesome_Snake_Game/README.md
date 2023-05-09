@@ -62,12 +62,13 @@ _(Replace this text with a brief description of your game and what inspired you 
 ```
 XXX IMPORTANT! Replace all of this text with your own writing as you do these tasks/answer these questions THEN DELETE THIS LINE XXX
 
-The writing should describe in plain, simple language the logic of the game.
+Need to have a board, snake, and food for basics. Then add in reset-button, score, and timer, as well as game-over rules.
 Describe the logic involved in player decisions.
-  - What are the choices available to the player?
-  - What happens when the player makes a choice?
-Describe the logic that evaluates the player's victory/loss/progress status.
-```
+  - Player can move in all directions on the board trying to eat the food.
+  - Player grows in size with each piece of food consumed.
+  Game Over:
+  - When the snake hits a wall.
+  - When the snake bites himself.
 
 ## Deliverables
 
@@ -82,9 +83,9 @@ Describe the logic that evaluates the player's victory/loss/progress status.
 
 XXX IMPORTANT! Replace the text below as you list the MVP criteria you met AND THEN DELETE THIS LINE XXX
 
-- One thing my game must do to meet my minimum standard.
-- Another thing.
-- Etc.
+- Snake must be able to be controlled, eat food, and grow.
+- Game Over parameters must be set & work.
+- Score and timer should be displayed.
 
 
 ### Post-MVP Plans
@@ -108,3 +109,11 @@ XXX IMPORTANT! USE THIS SPACE FOR THE SCHEDULE WE END UP MAKING IN CLASS AND ADD
 | Mon. 5/8 |      |
 | Wed. 5/10 |      |
 | Sat. 5/13 | Deploy to GitHub Pages. Submit completed project. Project presentations. |
+
+
+## Attributions:
+
+"Bite Into and Chew Apple" audio from https://freesfx.co.uk/sfx/Eating
+
+Some inspiration and code from JavaScript Tutorial "How to code snake game in JavaScript" by Kenny Yip Coding: https://www.youtube.com/watch?v=baBq5GAL0_U&ab_channel=KennyYipCoding
+
