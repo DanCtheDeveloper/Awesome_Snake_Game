@@ -38,8 +38,8 @@ window.onload = function() {
     
     let backAudio = new Audio('./assets/15326_1460400695.mp3')
     backAudio.loop = true;
-    backAudio.volume = 0.25
-    // backAudio.play()
+    backAudio.volume = 0.1
+    backAudio.play()
 
 
     //code for placing the food:
