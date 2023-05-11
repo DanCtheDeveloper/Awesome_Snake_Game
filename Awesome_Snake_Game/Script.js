@@ -6,6 +6,7 @@ let cols = 20
 let play;
 let context;
 
+
 //Head of the Snake 
 let snakeX = blockSize * 10
 let snakeY = blockSize * 10
@@ -21,6 +22,8 @@ let foodX
 let foodY
 
 let score = 0
+//Add High Score
+let highScore = localStorage.getItem('highScore') || 0
 
 let timeElapsed = 0
 
@@ -32,6 +35,11 @@ window.onload = function() {
     play.height = rows * blockSize
     play.width = cols * blockSize
     context = play.getContext("2d")
+    
+    let backAudio = new Audio('./assets/15326_1460400695.mp3')
+    backAudio.loop = true;
+    backAudio.volume = 0.25
+    // backAudio.play()
 
 
     //code for placing the food:
@@ -50,23 +58,32 @@ function update() {
     if(gameOver) {
         return
     }
-
+    //Game Board
     context.fillStyle="rgb(221, 190, 103)"
     context.fillRect(0, 0, play.width, play.height)  
-
+    //Food
     context.fillStyle="rgb(241, 134, 10)"
     context.fillRect(foodX, foodY, blockSize, blockSize)
 
 
  //code for making the snake eat the food:
  if (snakeX === foodX && snakeY === foodY){
+    let snakeEat = new Audio('./assets/14423_1460034386.mp3')
+    snakeEat.play()
     //code for growing the snake
     snakeGrow.push([foodX, foodY])
     placeFood()
     score +=10
+    if (score > highScore) highScore = score;
+	// context.fillStyle = '#eee';
+	// context.fillText(`Score: ${score}    High Score: ${highScore}`, 10, 20);
     }
 
-    context.fillText("Score:" + score, 20, 20)
+    context.font = "20px arial"
+    context.fillText("Score:" + score + "           High Score:" + highScore,  20, 20)
+    //Saving High Score in local storage:
+    localStorage.setItem('highScore', highScore);
+
     
     //For-let statement to move the body with the head:
     for (let i = snakeGrow.length-1; i > 0; i--){
@@ -76,11 +93,13 @@ function update() {
         snakeGrow[0] = [snakeX, snakeY]
     }
 
-    
+    //Snake Styling:
     context.fillStyle="rgb(108, 173, 43)"
     snakeX += speedX * blockSize
     snakeY += speedY * blockSize
     context.fillRect(snakeX, snakeY, blockSize, blockSize)
+    context.strokeStyle="black"
+    context.strokeRect(snakeX, snakeY, blockSize -1, blockSize -1)
      //For-Let statement to change the food green when eaten:
      for (let i=0; i<snakeGrow.length; i++) {
         context.fillRect(snakeGrow[i][0], snakeGrow[i][1], blockSize, blockSize)
