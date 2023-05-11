@@ -48,6 +48,8 @@ window.onload = function() {
     setInterval(update, 1000/10)
 }
 
+
+
     //code for drawing and re-drawing game_board, snake, and food characteristics:
 function update() {
 
@@ -64,6 +66,8 @@ function update() {
     //Food
     context.fillStyle="rgb(241, 134, 10)"
     context.fillRect(foodX, foodY, blockSize, blockSize)
+    context.strokeStyle="black"
+    context.strokeRect(foodX, foodY, blockSize -1, blockSize -1)
 
 
  //code for making the snake eat the food:
@@ -75,8 +79,6 @@ function update() {
     placeFood()
     score +=10
     if (score > highScore) highScore = score;
-	// context.fillStyle = '#eee';
-	// context.fillText(`Score: ${score}    High Score: ${highScore}`, 10, 20);
     }
 
     context.font = "20px arial"
@@ -111,12 +113,14 @@ function update() {
     // Bumping the wall - "Game Over":
     if(snakeX < 0 || snakeX > cols*blockSize -1 || snakeY < 0 || snakeY > rows*blockSize -1){
         gameOver = true
-        let wall = confirm("Game Over, you ran into the wall")
+        let deadSound = new Audio('./assets/17913_1464199839.mp3')
+        deadSound.play()
+        setTimeout(function() {
+            let wall = confirm("Game Over, you ran off the edge!")
             if (wall = true){
                 window.location.reload()
-
-               
-            }
+            } 
+          }, 1000)       
     }
     displayTimer()
     didSnakeCollide()
@@ -127,14 +131,16 @@ function update() {
             for (let i = 1; i < snakeGrow.length; i++) 
             if (snakeGrow[i][0] === snakeGrow[0][0] && snakeGrow[i][1] === snakeGrow[0][1]) {
                 gameOver = true
-                    console.log("Snake Bit Himself", snakeGrow)
+                let deadSound = new Audio('./assets/17913_1464199839.mp3')
+        deadSound.play()
+        setTimeout(function() {
                     let dead = confirm("Game Over, you bit your tail!")
                     if (dead = true){
                     window.location.reload()
                     }
-                }
+                }, 1000)
             }
-        
+        }
             function formatTime(time) {
                 const minutes = Math.floor(time / 60);
                 const seconds = time % 60;
