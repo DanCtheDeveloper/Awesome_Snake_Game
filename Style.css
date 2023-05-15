@@ -1,7 +1,4 @@
 /* Set Background & Set Fonts */
-
-
-
 body {
     background-image: url("./assets/pexels-jan-kopřiva-5899211.jpg");
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -27,7 +24,6 @@ button {
 }
 
 /* Set Styling for Divs */
-
 .Instructions {
     height: 10em;
     margin: 5px;
@@ -41,7 +37,6 @@ button {
     margin-left: -50px;
 }
 
-
 .Side_Menu {
     padding: 3px;
     height: 9em;
@@ -51,8 +46,6 @@ button {
     border-radius: 25px;
     border: 2px solid whitesmoke;
 }
-
-
 
 #game_board {
   
