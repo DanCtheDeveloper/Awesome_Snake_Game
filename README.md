@@ -1,7 +1,3 @@
-
-
-
-
 # NYU-SD-01 Milestone Project: Planning
 
 
@@ -16,22 +12,17 @@ Stretch Goals:
 7 - Add Sounds
 8 - Provide form for subscribers 
 
-
-
 --------
 
 ## Deployment
 
 The web game is deployed at <https://dancthedeveloper.github.io/Awesome_Snake_Game/>.
 
-
 ## Project Description
 
 Fun Snake Game!  Using the arrows you will control the snake, with the goal of directing him to eat the food square.  When the food square is eaten, the snake grows longer, and you earn 10 points!  Be careful though, if the snake goes off the edge, or bites his tail, the game ends.
 
-
 ## Game Logic
-
 
   - Player can move in all directions on the board trying to eat the food.
   - Player grows in size with each piece of food consumed.
@@ -47,37 +38,28 @@ Fun Snake Game!  Using the arrows you will control the snake, with the goal of d
 >
 >*Don't lose sight of your big ideas, though! Keep a list of further improvements you can refer to as **Post-MVP Ideas**. You might finish some before our project time is done, or you might work on them later!*
 
-
-
 ### MVP Criteria
-
 
 - Snake must be able to be controlled, eat food, and grow.
 - Game Over parameters must be set & work.
 - Score and timer should be displayed.
 
-
 ### Post-MVP Plans
-
-
 
 - Add high-score.
 - Add music and sound effects.
 - Record the high-score using "Local Storage".
-
-
 
 ## Project Planning
 
 | Date | Goals |
 | ---- | ----- |
 | Mon. 5/1 | Create GitHub repository. Complete README.md. |
-| Wed. 5/3 |      |
-| Sat. 5/6 |      |
-| Mon. 5/8 |      |
-| Wed. 5/10 |      |
+| Wed. 5/3 |  Get game working    |
+| Sat. 5/6 |  Get game over when snake touches tail    |
+| Mon. 5/8 |  Still working on tail.  Some adjustments to design and style.    |
+| Wed. 5/10 |  Working on Stretch Goals    |
 | Sat. 5/13 | Deploy to GitHub Pages. Submit completed project. Project presentations. |
-
 
 ## Attributions:
 
