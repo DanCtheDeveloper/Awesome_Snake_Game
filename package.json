@@ -1,0 +1,12 @@
+{
+  "name": "milestone-1-project",
+  "version": "1.0.0",
+  "description": "Game type: Snake Game\r 1 - Create Layout, Base HTML File, and design game function.\r 2 - Find necessary graphics and icons and apply to game, providing attributes as necessary.\r 3 - Decide on JavaScript Functions necessary for game and implement.\r 4 - Test code, ensure game is working.\r 5 - Beautify, adding background images or colors, etc.\r Stretch Goals:\r 6 - If all is working, add new functions to the game, such as score, high score, etc.\r 7 - Add Sounds\r 8 - Provide form for subscribers",
+  "main": "Script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
