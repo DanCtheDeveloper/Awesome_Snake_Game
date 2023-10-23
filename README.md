@@ -22,7 +22,7 @@ The web game is deployed at <https://dancthedeveloper.github.io/Awesome_Snake_Ga
 
 Fun Snake Game!  Using the arrows you will control the snake, with the goal of directing him to eat the food square.  When the food square is eaten, the snake grows longer, and you earn 10 points!  Be careful though, if the snake goes off the edge, or bites his tail, the game ends.
 
-## Game Logic
+## Game Logic / Technical Information
 
   - Player can move in all directions on the board trying to eat the food.
   - Player grows in size with each piece of food consumed.
@@ -35,8 +35,13 @@ Fun Snake Game!  Using the arrows you will control the snake, with the goal of d
 ## Deliverables
 
 >Even if you have a great big idea for a game, it's important to scope this project according to what you can get done in the next two weeks. We'll refer to your project completion goal using the term **[Minimum Viable Product](https://en.wikipedia.org/wiki/Minimum_viable_product) (MVP)** -- a list of the criteria needed to "ship" a playable version of your game that meets the project requirements.
->
->*Don't lose sight of your big ideas, though! Keep a list of further improvements you can refer to as **Post-MVP Ideas**. You might finish some before our project time is done, or you might work on them later!*
+
+
+### Technologies
+> -HTML
+  -JavaScript
+  -CSS
+  -No API required for this application
 
 ### MVP Criteria
 
